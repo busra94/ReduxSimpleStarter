@@ -15,7 +15,7 @@ const App = function(){ // const -> this is a final variable, it's not gonna cha
 }
 // Take this component's generated HTML and put it
 // on the page (in the DOM)  [show it on the page]
- ReactDOM.render(<App />); // <App></App> whenever we have a tag with jsx that has nothing inside of it we can make it self-closing tag by adding a space and forward slash
+ ReactDOM.render(<App />, document.querySelector('.container')); // <App></App> whenever we have a tag with jsx that has nothing inside of it we can make it self-closing tag by adding a space and forward slash
 
 
 
@@ -35,6 +35,17 @@ const App = function(){ // const -> this is a final variable, it's not gonna cha
     SO we need to instantiate our components before we try to render to the DOM
  */
 
+ /* ReactDOM.render(<App />);
+
+ In here, we say to ReactDOM render <App /> component but we do not say 
+ where to put DOM element on the page. And ReactDOM says us i don't know 
+ where to put that component on the page. 
+
+ To tell this we specify second argument and this is a reference to an existing DOM node on the page.
+ Think of that like target container, and we say to ReactDOM render this App produce HTML and insert 
+ that HTML into second argument(that exist in our HTML document, that mean we need an existing HTML node to render this)    
+
+ */
 
  /* If we do not define React we cannot use it even if we have react library.
 When we write es6 code which we are doing here, 
@@ -53,7 +64,9 @@ that it gets out into the DOM. Components are not
 automatically get inserted to our html document. 
 We have to specifically say to react.  */
 
-/* JSX cannot be interpreted by the browser, webpack and babel is to translate JSX into vanilla(pure) javascript that can be understood by the browser.
+/* JSX cannot be interpreted by the browser, webpack and babel is to translate JSX into vanilla(pure) javascript 
+that can be understood by the browser.
+
 The purpose of JSX is: 
 JSX is produces the actual html that gets inserted to the DOM 
 when we render this component.(render mean is put this components html onto the page)
