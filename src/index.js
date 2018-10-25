@@ -1,4 +1,12 @@
-import React from 'react'; // go find the library 'react' instaled in my application as dependency and assign it to the variable React   
+import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
+import ReactDOM from 'react-dom'; 
+/* The core React library knows how to work with react components, knows how to render them 
+how to nest them together, the functionality to actually render them to the dom, take a component 
+and insert into the DOM is now a seperate library called react-dom. 
+WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */     
+
+
+
 
 // Create a component. This component should produce 
 // some HTML [Make component]
@@ -7,9 +15,17 @@ const App = function(){ // const -> this is a final variable, it's not gonna cha
 }
 // Take this component's generated HTML and put it
 // on the page (in the DOM)  [show it on the page]
- React.render(App);
+ ReactDOM.render(App);
 
-/* If we do not define React we cannot use it even if we have react library.
+
+
+
+
+
+
+
+
+ /* If we do not define React we cannot use it even if we have react library.
 When we write es6 code which we are doing here, 
 we have access to a concept called javascript modules.
 Javascript modules encapsulates the idea that all the code we write 
