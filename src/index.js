@@ -15,7 +15,7 @@ const App = function(){ // const -> this is a final variable, it's not gonna cha
 }
 // Take this component's generated HTML and put it
 // on the page (in the DOM)  [show it on the page]
- ReactDOM.render(App);
+ ReactDOM.render(<App />); // <App></App> whenever we have a tag with jsx that has nothing inside of it we can make it self-closing tag by adding a space and forward slash
 
 
 
@@ -23,6 +23,17 @@ const App = function(){ // const -> this is a final variable, it's not gonna cha
 
 
 
+ /* const App = function(){ 
+    return <div>Hi!</div>; 
+
+    By creating an App (component) we create a class of component(a type of component),
+    We can have many different instances of App, and this is a class not an instance.  
+
+    Consider function in here as a factory that produces instances of the actual components
+    that get rendered to the DOM.
+    
+    SO we need to instantiate our components before we try to render to the DOM
+ */
 
 
  /* If we do not define React we cannot use it even if we have react library.
