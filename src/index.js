@@ -1,6 +1,7 @@
 import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
 import ReactDOM from 'react-dom'; 
 
+import SearchBar from './components/search_bar'; // we need to specify path because possible we have more than one search_bar.js file.   
 const API_KEY = "AIzaSyB_f1n-kKCHfhBXD4Z47V4RkyCMyScDZSc ";
 
 /* The core React library knows how to work with react components, knows how to render them 
@@ -14,7 +15,10 @@ WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */
 // Create a component. This component should produce 
 // some HTML [Make component]
 const App = () => { // const -> this is a final variable, it's not gonna change (actually constant)
-    return <div>Hi!</div>; // This refer to jsx, jsx is a dialect of javascrpt that allows us to write what looks like html inside of our javascript 
+    return (
+    <div>
+        <SearchBar />
+    </div>); // This refer to jsx, jsx is a dialect of javascrpt that allows us to write what looks like html inside of our javascript 
 }
 // Take this component's generated HTML and put it
 // on the page (in the DOM)  [show it on the page]
