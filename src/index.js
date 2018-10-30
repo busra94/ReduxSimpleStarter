@@ -1,5 +1,8 @@
 import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
 import ReactDOM from 'react-dom'; 
+
+const API_KEY = "AIzaSyB_f1n-kKCHfhBXD4Z47V4RkyCMyScDZSc ";
+
 /* The core React library knows how to work with react components, knows how to render them 
 how to nest them together, the functionality to actually render them to the dom, take a component 
 and insert into the DOM is now a seperate library called react-dom. 
@@ -10,7 +13,7 @@ WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */
 
 // Create a component. This component should produce 
 // some HTML [Make component]
-const App = function(){ // const -> this is a final variable, it's not gonna change (actually constant)
+const App = () => { // const -> this is a final variable, it's not gonna change (actually constant)
     return <div>Hi!</div>; // This refer to jsx, jsx is a dialect of javascrpt that allows us to write what looks like html inside of our javascript 
 }
 // Take this component's generated HTML and put it
