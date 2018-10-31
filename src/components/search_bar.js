@@ -19,12 +19,18 @@ TO MAKE POSSIBLE THIS WE CAN USE CLASS COMPONENTS*/
     // render is a must method, others from Component are optional.
 
     render(){ // if we do not return anything from render it's gonna give an error.
-        return <input />;                        
-    } 
- 
-    
-         
+        return <input onChange={
+            event => // if there is one argument we can drop parentheses
+            console.log(event.target.value) 
+         } />; // onChange() is a react event                         
+    }
+           
 }
+
+// React components can show other components, so because of there is no connection between components we need explicitly declare a connection between them.
+export default SearchBar; // now we can use searchbar from other components
+
+
 
 
 
@@ -37,6 +43,8 @@ or have the ability to communicate with other components very effectively,
 because we want these abilities we use class component instead of function component      
 */
 
-// React components can show other components, so because of there is no connection between components we need explicitly declare a connection between them.
-
-export default SearchBar; // now we can use searchbar from other components
+/*     // event handler 
+    // convention: on/handle-NameoftheElementforWatchingAnEvent-NameoftheEvent
+    onInputChange(event){ // an event object describes the context or information about the event that occurred.        
+    }  
+*/
