@@ -35,7 +35,7 @@ const App = () => { // const -> this is a final variable, it's not gonna change 
 
     By creating an App (component) we create a class of component(a type of component),
     We can have many different instances of App, and this is a class not an instance.  
-
+  
     Consider function in here as a factory that produces instances of the actual components
     that get rendered to the DOM.
     
@@ -86,3 +86,6 @@ We do not have to write JSX but behind of scene JSX is turned into vanilla javas
 When our components grow up it is getting really complex.  
 */
  
+/* https://reactjs.org/docs/components-and-props.html : 
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation
+ */
