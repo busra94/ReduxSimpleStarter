@@ -1,15 +1,14 @@
 import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
 import ReactDOM from 'react-dom'; 
+import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar'; // we need to specify path because possible we have more than one search_bar.js file.   
-const API_KEY = "AIzaSyB_f1n-kKCHfhBXD4Z47V4RkyCMyScDZSc ";
 
-/* The core React library knows how to work with react components, knows how to render them 
-how to nest them together, the functionality to actually render them to the dom, take a component 
-and insert into the DOM is now a seperate library called react-dom. 
-WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */     
+const API_KEY = "AIzaSyD34FV1scycwDox7XEDX3JTXWR3SqHVGGk";
 
-
+YTSearch({key: API_KEY , term: 'babies'}, function(data){
+    console.log(data)
+});
 
 
 // Create a component. This component should produce 
@@ -26,7 +25,10 @@ const App = () => { // const -> this is a final variable, it's not gonna change 
 
 
 
-
+/* The core React library knows how to work with react components, knows how to render them 
+how to nest them together, the functionality to actually render them to the dom, take a component 
+and insert into the DOM is now a seperate library called react-dom. 
+WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */     
 
 
 
@@ -89,3 +91,5 @@ When our components grow up it is getting really complex.
 /* https://reactjs.org/docs/components-and-props.html : 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation
  */
+
+ /* Downwards data flow means the only most parent component in the application should be responsible for fetchig data. */

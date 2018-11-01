@@ -28,7 +28,7 @@ class SearchBar extends Component { // Give SearchBar class access to all of the
             <div>
                 {/* here, input says to state with setState update the state you need to change the state(like someone tells his boss you need to change), now we want to make inverse this scenario(state will tell input what the current value should be. now we update input to gets its value from the state.) */}
                 <input 
-                value={this.state.term} // input value is provided by this.state.term and with this statement we turn input to a controlled component. So now input value only changes when the state changes
+                value={this.state.term} // input value is provided by this.state.term and with this statement we turn input element to a controlled component. So now input value only changes when the state changes
                 onChange={ // when the onChange event handler runs the value of the input has not actually changed 
                     event => // if there is one argument we can drop parentheses
                     // this.setState causes the component to re-render and when it re-renders the value of the input is set to new value of the this.state.term  
@@ -70,3 +70,5 @@ because we want these abilities we use class component instead of function compo
 */
 
 /* if we wanna an initial value of the input element we can initialize it assign this.state.term to its value.|(not a placeholder(grayed out text.))  */
+
+/* Downwards data flow means the only most parent component in the application should be responsible for fetchig data. index is the most parent component in our app and the others(video_detail etc) are its children, and the children components are going to use that fetch data  */
