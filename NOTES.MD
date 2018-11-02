@@ -65,7 +65,7 @@ https://medium.com/@etherealm/super-vs-super-props-in-react-class-components-586
 
 Class components should always call the base constructor with props and ES6 Classes have to call super if they are subclasses.
 
-*Udemy course notes from Stephen Grider*
+### *Udemy course notes from Stephen Grider*
 The core React library knows how to work with react components, knows how to render them 
 how to nest them together, the functionality to actually render them to the dom, take a component 
 and insert into the DOM is now a seperate library called react-dom. 
