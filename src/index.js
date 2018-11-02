@@ -1,33 +1,48 @@
-import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
-import ReactDOM from 'react-dom'; 
+import React, { Component } from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */
+import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar'; // we need to specify path because possible we have more than one search_bar.js file.   
 
 const API_KEY = "AIzaSyD34FV1scycwDox7XEDX3JTXWR3SqHVGGk";
 
-YTSearch({key: API_KEY , term: 'babies'}, function(data){
-    console.log(data)
-});
-
-
 // Create a component. This component should produce 
 // some HTML [Make component]
-const App = () => { // const -> this is a final variable, it's not gonna change (actually constant)
-    return (
-    <div>
-        <SearchBar />
-    </div>); // This refer to jsx, jsx is a dialect of javascrpt that allows us to write what looks like html inside of our javascript 
+class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { videos: [] }; // videos -> property name of state, {} -> this is an empty object
+
+        // to make sure the user see some videos immediately we move it into App component.
+        YTSearch({ key: API_KEY, term: 'surfboards' }, (videos) => { // data returns from function is list of videos.
+            this.setState({videos}); // this came from es6 syntax, if key and value names are same we can use this syntax.
+         //   this.setState({videos: videos}); // we assign videos to videos array.     
+        });
+    }
+    render() {
+        return (
+            <div>
+                <SearchBar />
+            </div>); // This refer to jsx, jsx is a dialect of javascrpt that allows us to write what looks like html inside of our javascript 
+    }
+
 }
+/* const App = () => { // const -> this is a final variable, it's not gonna change (actually constant)
+//We turned functional component into class based component because we wanna keep track of the list of videos(because some amount of data that's going to change over time and we want it to persist throughout the application). 
+} */
+
+
+
 // Take this component's generated HTML and put it
 // on the page (in the DOM)  [show it on the page]
- ReactDOM.render(<App />, document.querySelector('.container')); // <App></App> whenever we have a tag with jsx that has nothing inside of it we can make it self-closing tag by adding a space and forward slash
+ReactDOM.render(<App />, document.querySelector('.container')); // <App></App> whenever we have a tag with jsx that has nothing inside of it we can make it self-closing tag by adding a space and forward slash
 
 
 
 /* The core React library knows how to work with react components, knows how to render them 
 how to nest them together, the functionality to actually render them to the dom, take a component 
 and insert into the DOM is now a seperate library called react-dom. 
-WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */     
+WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT */
 
 
 
@@ -86,7 +101,7 @@ AND WHY WE USE JSX :
 We do not have to write JSX but behind of scene JSX is turned into vanilla javascript and it is really complicated.
 When our components grow up it is getting really complex.  
 */
- 
+
 /* https://reactjs.org/docs/components-and-props.html : 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation
  */

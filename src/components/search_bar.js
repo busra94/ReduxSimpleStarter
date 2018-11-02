@@ -44,7 +44,6 @@ class SearchBar extends Component { // Give SearchBar class access to all of the
                                
         ); // onChange() is a react event                   
     }
-
 }
 
 // React components can show other components, so because of there is no connection between components we need explicitly declare a connection between them.
