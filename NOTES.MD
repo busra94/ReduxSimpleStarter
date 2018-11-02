@@ -102,4 +102,4 @@ Components let you split the UI into independent, reusable pieces, and think abo
 In class based component props are available anywhere in any method we define as this.prop 
 
 #### 
-*Whenever we refactor our component from being functional component to class based component we need to update our references props to this.props*
+Whenever we refactor our component from being functional component to class based component we need to update our references props to this.props

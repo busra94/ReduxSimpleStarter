@@ -8,9 +8,12 @@ import React from 'react';
 import VideoListItem from "./video_list_item"; // ./ means current directory
 
 const VideoList = (props) => {
+    //  property of array that is map, is returns an array of videos 
     const videoItems = props.videos.map((video) => { // this function called for each item in the video list(each element of videos will have a function that gets called with a single video)
+        
 
-        return <VideoListItem video={video} />
+        return <VideoListItem key={video.etag} video={video} /> // in future when react needs to update or something like videos, it needs to know which one will be updated, so it needs a unique key for videos (key can be string, number etc, it has not a specific type)
+
 
     });
 
