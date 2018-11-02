@@ -70,5 +70,3 @@ because we want these abilities we use class component instead of function compo
 */
 
 /* if we wanna an initial value of the input element we can initialize it assign this.state.term to its value.|(not a placeholder(grayed out text.))  */
-
-/* Downwards data flow means the only most parent component in the application should be responsible for fetchig data. index is the most parent component in our app and the others(video_detail etc) are its children, and the children components are going to use that fetch data  */

@@ -1,7 +1,6 @@
 import React from 'react'; /* go find the library 'react' installed in my application as dependency and assign it to the variable React [Core React Library]  */ 
 import ReactDOM from 'react-dom'; 
 import YTSearch from 'youtube-api-search';
-
 import SearchBar from './components/search_bar'; // we need to specify path because possible we have more than one search_bar.js file.   
 
 const API_KEY = "AIzaSyD34FV1scycwDox7XEDX3JTXWR3SqHVGGk";
