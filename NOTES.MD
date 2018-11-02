@@ -42,3 +42,64 @@ https://medium.com/@lizdenhup/understanding-unidirectional-data-flow-in-react-3e
  A unidirectional data flow means that when designing a React app you often nest child components within higher-order parent components. 
 ### Downwards data flow from Stephen Grider course 
 Downwards data flow means the only most parent component in the application should be responsible for fetchig data.    
+
+### super()
+https://stackoverflow.com/questions/31067368/how-to-extend-a-class-without-having-to-using-super-in-es6/31079103#31079103 : 
+
+Section 9.2.2, [[Construct]], which defines the behavior of functions called via new or super. When calling a base class constructor, this is initialized at step #8 of [[Construct]], but for all other cases, this is uninitialized. At the end of construction, GetThisBinding is called, so if super has not been called yet (thus initializing this), or an explicit replacement object was not returned, the final line of the constructor call will throw an exception.
+
+https://discuss.reactjs.org/t/should-we-include-the-props-parameter-to-class-constructors-when-declaring-components-using-es6-classes/2781
+
+https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do/40440322 :
+
+The reason why this cannot be allowed before super() is because this is uninitialized if super() is not called. However even if we are not using this we need a super() inside a constructor because ES6 class constructors MUST call super if they are subclasses. Thus, you have to call super() as long as you have a constructor. (But a subclass does not have to have a constructor).
+
+super() will calls the constructor of its parent class. This is required when you need to access some variables from the parent class.
+
+### super() vs super(props)
+https://stackoverflow.com/questions/30571875/whats-the-difference-between-super-and-superprops-in-react-when-using-e
+
+Note that passing or not passing props to super has no effect on later uses of this.props outside constructor. That is render, shouldComponentUpdate, or event handlers always have access to it.
+
+https://medium.com/@etherealm/super-vs-super-props-in-react-class-components-58658af6ecf2 
+
+Class components should always call the base constructor with props and ES6 Classes have to call super if they are subclasses.
+
+*Udemy course notes from Stephen Grider*
+The core React library knows how to work with react components, knows how to render them 
+how to nest them together, the functionality to actually render them to the dom, take a component 
+and insert into the DOM is now a seperate library called react-dom. 
+WE USE REACT_DOM LIBRARY FOR RENDERING A COMPONENT 
+
+
+If we do not define React we cannot use it even if we have react library.
+When we write es6 code which we are doing here, we have access to a concept called javascript modules.
+Javascript modules encapsulates the idea that all the code we write in seperate files is siloed(isolated), seperated from other code that we write, 
+IN OTHER LIBRARIES THAT WE INSTALL IN OUR PROJECT.
+
+Code that is declared in other files that we produce will have zero contact with this file unless we explicitly say I want access to some code in other file over there. 
+(Means react says I want access to App variable)
+ 
+
+After we create that component we need to make sure that it gets out into the DOM. Components are not automatically get inserted to our html document. 
+We have to specifically say to react. (with ReactDOM)  
+
+JSX cannot be interpreted by the browser, webpack and babel is to translate JSX into vanilla(pure) javascript that can be understood by the browser.
+
+The purpose of JSX is: 
+JSX is produces the actual html that gets inserted to the DOM when we render this component.(render mean is put this components html onto the page)
+So this jsx gets turned into html which in turn gets placed onto our page into our DOM, it's what the user ends up seeing.
+So the purpose of JSX is to have some javascript code that can produce ultimately HTML.
+
+### AND WHY WE USE JSX : 
+We do not have to write JSX but behind of scene JSX is turned into vanilla javascript and it is really complicated.
+When our components grow up it is getting really complex. 
+
+ https://reactjs.org/docs/components-and-props.html : 
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation
+
+#### props  
+In class based component props are available anywhere in any method we define as this.prop 
+
+#### 
+*Whenever we refactor our component from being functional component to class based component we need to update our references props to this.props*
