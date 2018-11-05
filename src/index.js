@@ -19,7 +19,13 @@ class App extends Component {
             this.setState({ videos }); // this came from es6 syntax, if key and value names are same we can use this syntax.
             //   this.setState({videos: videos}); // we assign videos to videos array.     
         }); 
-    }  
+    }
+    
+    /* In between the time that it takes youtube request to finish, the component
+    still attempts to render itself, so this.state.videos is still an empty array. /* 
+    /* so in here {this.state.videos[0]} is undefined and we are passing undefined to videodetail
+    in videodetail here const videoId = video.id.videoId; we are getting error id is undefined, we are passing video undefined.
+    to solve this we add a check to video_detail to make sure video has been provided before it attempts to render. */  
 
     render() {
         return (

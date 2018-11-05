@@ -10,7 +10,9 @@
 import React from 'react';
 
 const VideoDetail = ({video}) =>{ // in here with curly braces we say the first object in the arguments has a property video, grab that video and declare a new variable called video
-   
+    if(!video){ // if video is not provided
+        return <div>Loading...</div>
+    }   
     const videoId = video.id.videoId;
     // pulling to this url and creating an iframe will show a youtube video player inside of our application for us. 
     const url = `http://www.youtube.com/embed/${videoId}`; // string interpolation(template strings)  `(back tick)
