@@ -12,15 +12,21 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { videos: [] }; // videos -> property name of state, {} -> this is an empty object
+        this.state = { 
+            videos: [],
+            selectedVideo: null
+        }; // videos -> property name of state, {} -> this is an empty object
 
         // to make sure the user see some videos immediately we move it into App component.
         YTSearch({ key: API_KEY, term: 'surfboards' }, (videos) => { // 'videos' returns from function is list of videos.
-            this.setState({ videos }); // this came from es6 syntax, if key and value names are same we can use this syntax.
+            this.setState({ 
+                videos: videos,
+                selectedVideo: videos[0] 
+            }); //  this.setState({ videos}); --- this syntax came from es6 syntax, if key and value names are same we can use this syntax.
             //   this.setState({videos: videos}); // we assign videos to videos array.     
         }); 
     }
-    
+
     /* In between the time that it takes youtube request to finish, the component
     still attempts to render itself, so this.state.videos is still an empty array. /* 
     /* so in here {this.state.videos[0]} is undefined and we are passing undefined to videodetail
@@ -31,11 +37,14 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/> {/*  <VideoDetail /> in here we have array of videos */}
+                {/* in the beginnig we have no selected video, because of that we are passing null to video detail, so in the page 'Loading' appears. */}
+                <VideoDetail video={this.state.selectedVideo}/> {/*  <VideoDetail /> in here we have array of videos */}
                 {/* app is the parent of videolist, videolist needs to get access to list of videos that are on the app state
                 (basically we need to pass some data from the parent component into the child component
                 (we do this approach defining property on the jsx tag.)) */}
-                <VideoList videos={this.state.videos} /> {/* in here videos(in videoList tag) is a prop (passing props) | when prop arrives to functional component it's gonna be ultimately function's argument */}
+                <VideoList // video and onVideoSelect are property of VideoList
+                onVideoSelect={selectedVideo => this.setState({selectedVideo}) }  
+                videos={this.state.videos} /> {/* in here videos(in videoList tag) is a prop (passing props) | when prop arrives to functional component it's gonna be ultimately function's argument */}
              
             </div>); // This refer to jsx, jsx is a dialect of javascript that allows us to write what looks like html inside of our javascript 
     }

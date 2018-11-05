@@ -103,3 +103,5 @@ In class based component props are available anywhere in any method we define as
 
 #### 
 Whenever we refactor our component from being functional component to class based component we need to update our references props to this.props
+
+# Passing callbacks down from parent to child ARASTIR

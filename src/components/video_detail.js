@@ -9,29 +9,29 @@
 
 import React from 'react';
 
-const VideoDetail = ({video}) =>{ // in here with curly braces we say the first object in the arguments has a property video, grab that video and declare a new variable called video
-    if(!video){ // if video is not provided
+const VideoDetail = ({ video }) => { // in here with curly braces we say the first object in the arguments has a property video, grab that video and declare a new variable called video
+    if (!video) { // if video is not provided
         return <div>Loading...</div>
-    }   
+    }
     const videoId = video.id.videoId;
     // pulling to this url and creating an iframe will show a youtube video player inside of our application for us. 
     const url = `http://www.youtube.com/embed/${videoId}`; // string interpolation(template strings)  `(back tick)
     // const url = 'http://www.youtube.com/embed/' + videoId; // whenever we want to embed a video or like navigate the video the only thing that changes in the url is the actual idd of the video.
-        return (
+
+    return (
         <div className="video-detail col-md-8">
-        <div className="embed-responsive embed-responsive-16by9"> {/* this is going to be IFrame that we're going to use to display the video. */}
-        <iframe className="embed-responsive-item" src={url}></iframe>
-        </div>
-        <div className="details">
-        <div>{video.snippet.title}</div> {/* title */}
-        <div>{video.snippet.description}</div> {/* video description */}
-        </div>
+            <div className="embed-responsive embed-responsive-16by9"> {/* this is going to be IFrame that we're going to use to display the video. */}
+                <iframe className="embed-responsive-item" src={url}></iframe>
+            </div>
+            <div className="details">
+                <div>{video.snippet.title}</div> {/* title */}
+                <div>{video.snippet.description}</div> {/* video description */}
+            </div>
         </div>
     );
-
 };
 
-export default VideoDetail; 
+export default VideoDetail;
 
 /* const VideoDetail = (props) =>{
     // props has a property video 
