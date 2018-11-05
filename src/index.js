@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar'; // we need to specify path because possible we have more than one search_bar.js file.   
 import VideoList from "./components/video_list";
-
+import VideoDetail from "./components/video_detail";
 const API_KEY = "AIzaSyD34FV1scycwDox7XEDX3JTXWR3SqHVGGk";
 
 // Create a component. This component should produce 
@@ -19,11 +19,13 @@ class App extends Component {
             this.setState({ videos }); // this came from es6 syntax, if key and value names are same we can use this syntax.
             //   this.setState({videos: videos}); // we assign videos to videos array.     
         }); 
-    }
+    }  
+
     render() {
         return (
             <div>
                 <SearchBar />
+                <VideoDetail video={this.state.videos[0]}/> {/*  <VideoDetail /> in here we have array of videos */}
                 {/* app is the parent of videolist, videolist needs to get access to list of videos that are on the app state
                 (basically we need to pass some data from the parent component into the child component
                 (we do this approach defining property on the jsx tag.)) */}
