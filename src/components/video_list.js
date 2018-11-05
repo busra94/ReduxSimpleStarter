@@ -14,15 +14,12 @@ const VideoList = (props) => {
         // key must be consistent which means always has a same value.(if we re-render the component key will have same e-tag for per each video.)
         
     });
-
-
     return (
         <ul className="col-md-4 list-group"> {/* to use javascript variable in jsx we must use curly braces {} */}
             {videoItems}
         </ul>
     )
 }
-
 export default VideoList;
 
 

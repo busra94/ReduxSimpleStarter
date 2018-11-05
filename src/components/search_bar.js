@@ -34,9 +34,7 @@ class SearchBar extends Component { // Give SearchBar class access to all of the
                     // this.setState causes the component to re-render and when it re-renders the value of the input is set to new value of the this.state.term  
                         this.setState( // with setState we inform react about state is changed. Whenever setState is called our component immediately re-runs
                             { term: event.target.value },                         
-                            )
-                                                     
-                            
+                            )                                                                          
                         } 
                 />               
                 {/* Value of input: {this.state.term}  we are not modifying term we are just referencing it */}
