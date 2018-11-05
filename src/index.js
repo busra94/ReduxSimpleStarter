@@ -17,14 +17,19 @@ class App extends Component {
             selectedVideo: null
         }; // videos -> property name of state, {} -> this is an empty object
 
-        // to make sure the user see some videos immediately we move it into App component.
-        YTSearch({ key: API_KEY, term: 'surfboards' }, (videos) => { // 'videos' returns from function is list of videos.
-            this.setState({ 
-                videos: videos,
-                selectedVideo: videos[0] 
-            }); //  this.setState({ videos}); --- this syntax came from es6 syntax, if key and value names are same we can use this syntax.
-            //   this.setState({videos: videos}); // we assign videos to videos array.     
-        }); 
+        this.videoSearch('surfboards');
+    
+    }
+
+    videoSearch(term){
+    // to make sure the user see some videos immediately we move it into App component.
+    YTSearch({ key: API_KEY, term: term }, (videos) => { // 'videos' returns from function is list of videos.
+    this.setState({ 
+        videos: videos,
+        selectedVideo: videos[0] 
+    }); //  this.setState({ videos}); --- this syntax came from es6 syntax, if key and value names are same we can use this syntax.
+    //   this.setState({videos: videos}); // we assign videos to videos array.     
+}); 
     }
 
     /* In between the time that it takes youtube request to finish, the component
@@ -36,7 +41,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
                 {/* in the beginnig we have no selected video, because of that we are passing null to video detail, so in the page 'Loading' appears. */}
                 <VideoDetail video={this.state.selectedVideo}/> {/*  <VideoDetail /> in here we have array of videos */}
                 {/* app is the parent of videolist, videolist needs to get access to list of videos that are on the app state
