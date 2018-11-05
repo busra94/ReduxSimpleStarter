@@ -23,9 +23,8 @@ class SearchBar extends Component { // Give SearchBar class access to all of the
     }
     // render is a must method, others from Component are optional.
     render() { // if we do not return anything from render it's gonna give an error.
-        return (
-            
-            <div>
+        return (            
+            <div className="search-bar ">
                 {/* here, input says to state with setState update the state you need to change the state(like someone tells his boss you need to change), now we want to make inverse this scenario(state will tell input what the current value should be. now we update input to gets its value from the state.) */}
                 <input 
                 value={this.state.term} // input value is provided by this.state.term and with this statement we turn input element to a controlled component. So now input value only changes when the state changes
